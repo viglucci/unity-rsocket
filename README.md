@@ -1,6 +1,6 @@
 # Unity RSocket
 
-`unity-rsocket` is a Unity compatible implementation of [RSocket](https://rsocket.io).
+Unity RSocket (`io.viglucci.rsocket.unity`) is a Unity compatible implementation of [RSocket](https://rsocket.io).
 
 ## Feature Support
 
