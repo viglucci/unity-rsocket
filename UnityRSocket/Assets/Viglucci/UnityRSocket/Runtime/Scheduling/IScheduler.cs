@@ -1,6 +1,6 @@
 using System;
 
-namespace Viglucci.UnityRSocket.Runtime.Scheduling
+namespace Viglucci.UnityRSocket.Scheduling
 {
     public interface IScheduler
     {

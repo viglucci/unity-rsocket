@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using Viglucci.UnityRSocket.Runtime.Frame;
+using Viglucci.UnityRSocket.Frame;
 
-namespace Viglucci.UnityRSocket.Runtime
+namespace Viglucci.UnityRSocket
 {
     public class RSocketRequester : Deferred, IRSocket
     {

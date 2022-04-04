@@ -1,7 +1,7 @@
 using System;
 using System.Net.Sockets;
 
-namespace Viglucci.UnityRSocket.Runtime
+namespace Viglucci.UnityRSocket.Transport
 {
     public class TcpClientTransport : IClientTransport
     {

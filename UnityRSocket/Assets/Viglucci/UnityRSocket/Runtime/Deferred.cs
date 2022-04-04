@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Viglucci.UnityRSocket.Runtime
+namespace Viglucci.UnityRSocket
 {
     public class Deferred : ICloseable
     {

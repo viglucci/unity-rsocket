@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using Viglucci.UnityRSocket.Runtime.Frame;
+using Viglucci.UnityRSocket.Frame;
 
-namespace Viglucci.UnityRSocket.Runtime
+namespace Viglucci.UnityRSocket
 {
     public abstract class ClientServerInputMultiplexerDemultiplexer : Deferred, IMultiplexer, IStream
     {

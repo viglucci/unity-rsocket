@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
 using System.Threading;
-using Viglucci.UnityRSocket.Runtime.Frame;
+using Viglucci.UnityRSocket.Frame;
 
-namespace Viglucci.UnityRSocket.Runtime
+namespace Viglucci.UnityRSocket.Transport
 {
     public class TcpDuplexConnection : ClientServerInputMultiplexerDemultiplexer, IDuplexConnection
     {

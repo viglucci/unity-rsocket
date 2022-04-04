@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Viglucci.UnityRSocket.Runtime.Metadata
+namespace Viglucci.UnityRSocket.Metadata
 {
     public static class Routing
     {

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Viglucci.UnityRSocket.Runtime.Metadata
+namespace Viglucci.UnityRSocket.Metadata
 {
     public class CompositeMetadata
     {

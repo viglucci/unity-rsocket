@@ -1,4 +1,4 @@
-namespace Viglucci.UnityRSocket.Runtime
+namespace Viglucci.UnityRSocket
 {
     public class RSocketFlagUtils
     {

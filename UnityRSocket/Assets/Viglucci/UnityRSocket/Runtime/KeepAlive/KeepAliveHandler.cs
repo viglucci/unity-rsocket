@@ -1,9 +1,9 @@
 using System;
 using UnityEngine;
-using Viglucci.UnityRSocket.Runtime.Frame;
-using Viglucci.UnityRSocket.Runtime.Scheduling;
+using Viglucci.UnityRSocket.Frame;
+using Viglucci.UnityRSocket.Scheduling;
 
-namespace Viglucci.UnityRSocket.Runtime.KeepAlive
+namespace Viglucci.UnityRSocket.KeepAlive
 {
     public class KeepAliveHandler : Deferred, IFrameHandler
     {

@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Viglucci.UnityRSocket.Runtime.KeepAlive;
-using Viglucci.UnityRSocket.Runtime.Scheduling;
+using Viglucci.UnityRSocket.KeepAlive;
+using Viglucci.UnityRSocket.Scheduling;
 
-namespace Viglucci.UnityRSocket.Runtime
+namespace Viglucci.UnityRSocket
 {
     public class SetupOptions
     {

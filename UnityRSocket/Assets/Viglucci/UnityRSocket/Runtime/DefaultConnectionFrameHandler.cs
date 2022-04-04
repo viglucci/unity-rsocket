@@ -1,8 +1,8 @@
 using System;
-using Viglucci.UnityRSocket.Runtime.Frame;
-using Viglucci.UnityRSocket.Runtime.KeepAlive;
+using Viglucci.UnityRSocket.Frame;
+using Viglucci.UnityRSocket.KeepAlive;
 
-namespace Viglucci.UnityRSocket.Runtime
+namespace Viglucci.UnityRSocket
 {
     public class DefaultConnectionFrameHandler : IConnectionFrameHandler
     {

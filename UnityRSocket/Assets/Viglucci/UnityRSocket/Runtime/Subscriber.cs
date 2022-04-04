@@ -1,6 +1,6 @@
 using System;
 
-namespace Viglucci.UnityRSocket.Runtime
+namespace Viglucci.UnityRSocket
 {
     public class Subscriber : ISubscriber
     {

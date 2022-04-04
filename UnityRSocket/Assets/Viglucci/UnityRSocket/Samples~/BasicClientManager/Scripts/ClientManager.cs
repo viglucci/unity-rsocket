@@ -4,6 +4,7 @@ using System.Text;
 using DTO;
 using IO.Viglucci.Unity.RSocket;
 using IO.Viglucci.Unity.RSocket.CompositeMetadata;
+using IO.Viglucci.Unity.RSocket.Transport;
 using UnityEngine;
 
 public class ClientManager : MonoBehaviour

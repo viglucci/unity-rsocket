@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using JetBrains.Annotations;
-using Viglucci.UnityRSocket.Runtime.Frame;
+using Viglucci.UnityRSocket.Frame;
 
-namespace Viglucci.UnityRSocket.Runtime
+namespace Viglucci.UnityRSocket
 {
     public interface IPayload
     {

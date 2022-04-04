@@ -1,4 +1,4 @@
-namespace Viglucci.UnityRSocket.Runtime.Frame
+namespace Viglucci.UnityRSocket.Frame
 {
     public enum FrameType
     {

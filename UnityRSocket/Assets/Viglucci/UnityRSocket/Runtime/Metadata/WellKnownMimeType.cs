@@ -1,4 +1,4 @@
-namespace Viglucci.UnityRSocket.Runtime.Metadata
+namespace Viglucci.UnityRSocket.Metadata
 {
     public enum WellKnownMimeType
     {

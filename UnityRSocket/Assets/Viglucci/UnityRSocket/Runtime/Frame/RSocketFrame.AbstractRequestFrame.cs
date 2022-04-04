@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Viglucci.UnityRSocket.Runtime.Frame
+namespace Viglucci.UnityRSocket.Frame
 {
     public static partial class RSocketFrame
     {
