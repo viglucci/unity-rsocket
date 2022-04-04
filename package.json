@@ -2,7 +2,7 @@
     "name": "io.viglucci.rsocket.unity",
     "version": "0.1.0",
     "description": "Unity compatible implementation of RSocket, an application protocol providing Reactive Streams semantics",
-    "displayName": "RSocket Unity",
+    "displayName": "RSocket for Unity",
     "unity": "2018.3",
     "keywords": [
       "library",
