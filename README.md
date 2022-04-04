@@ -19,7 +19,7 @@ Unity RSocket (`io.viglucci.rsocket.unity`) is a Unity compatible implementation
 ### Network Transports
 
 - ✔️ TCP Client Transport (included with Unity RSocket)
-- ❌ WebSocket Client Transport (WIP)
+- ✔️ WebSocket Client Transport (via [unity-rsocket-transport-websocket](https://github.com/viglucci/unity-rsocket-transport-websocket))
 
 ### Interaction Models
 
