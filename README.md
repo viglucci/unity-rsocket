@@ -7,23 +7,29 @@
 ### RSocket Core Features Support
 
 - 🟨 Request Interactions (see "Interaction Models" below)
-- ✔️ TCP Client Transport
-- ❌ WebSocket Client Transport
-- ❌ Leasing
+- ✔️ [Keepalive](https://rsocket.io/about/protocol/#keepalive-frame-0x03)
+- ❌ [Leasing](https://rsocket.io/about/protocol/#lease-semantics)
 - ❌ Resumability
-- ✔️ Keepalive
-- 🟨 Composite Metadata (wip)
-- ✔️ Routing
+
+## RSocket Extensions Support
+
+- 🟨 [Composite Metadata](https://github.com/rsocket/rsocket/blob/master/Extensions/CompositeMetadata.md) (wip)
+- ✔️ [Routing](https://github.com/rsocket/rsocket/blob/master/Extensions/Routing.md)
+
+### Network Transports
+
+- ✔️ TCP Client Transport (included with Unity RSocket)
+- ❌ WebSocket Client Transport (WIP)
 
 ### Interaction Models
 
 Learn more about ["Stream Sequences and Lifetimes"](https://rsocket.io/about/protocol#stream-sequences-and-lifetimes).
 
-- ✔️ Fire and Forget
-- ✔️ Request Response
-- ✔️ Request Stream
-- ❌ Request Channel
-- ❌ Metadata Push
+- ✔️ [Fire and Forget](https://rsocket.io/about/protocol/#request-fire-n-forget)
+- ✔️ [Request Response](https://rsocket.io/about/protocol/#request-response)
+- ✔️ [Request Stream](https://rsocket.io/about/protocol/#request-stream)
+- ❌ [Request Channel](https://rsocket.io/about/protocol/#request-channel)
+- ❌ [Metadata Push](https://rsocket.io/about/protocol/#metadata_push-frame-0x0c)
 
 ## Examples
 
