@@ -58,7 +58,7 @@ namespace Viglucci.UnityRSocket.Frame
         private static RSocketFrame.AbstractFrame DeserializeKeepAliveFrame(
             List<byte> frameBuffer,
             int streamId,
-            int _,
+            int flags,
             int offset)
         {
             (ulong value, int nextOffset) lastReceivedPosition = BufferUtils.ReadUInt64BigEndian(frameBuffer, offset);
@@ -67,7 +67,8 @@ namespace Viglucci.UnityRSocket.Frame
 
             return new RSocketFrame.KeepAliveFrame(streamId)
             {
-                LastReceivedPosition = lastReceivedPosition.value
+                LastReceivedPosition = lastReceivedPosition.value,
+                Flags = (ushort) flags
             };
         }
 
