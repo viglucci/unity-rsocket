@@ -59,3 +59,8 @@ sysinfo.txt
 crashlytics-build.properties
 
 .idea
+
+*.zip
+*.zip.meta
+*.7z
+*.7z.meta
