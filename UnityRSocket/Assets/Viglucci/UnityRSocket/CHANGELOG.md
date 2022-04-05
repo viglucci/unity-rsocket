@@ -1,3 +1,9 @@
+## [0.3.1](https://github.com/viglucci/unity-rsocket/compare/v0.3.0...v0.3.1) (2022-04-05)
+
+
+### Bug Fixes
+
+* remove debug line in KeepAlive timeout check handler ([a21cf87](https://github.com/viglucci/unity-rsocket/commit/a21cf87732efb9809c78c8011e7bfe12237a68b4))
 
 # [0.3.0](https://github.com/viglucci/unity-rsocket/compare/v0.2.1...v0.3.0) (2022-04-05)
 
