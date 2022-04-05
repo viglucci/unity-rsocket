@@ -46,8 +46,7 @@ namespace Viglucci.UnityRSocket.KeepAlive
         private void TimeoutCheck()
         {
             if (Done) return;
-            
-            Debug.Log("TimeoutCheck");
+
             long now = DateTimeOffset.Now.ToUnixTimeMilliseconds();
             long noKeepAliveDurationMillis = now - _lastReceivedMillis;
             if (noKeepAliveDurationMillis >= _keepAliveTimeoutDurationMillis)
