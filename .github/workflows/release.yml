@@ -16,7 +16,7 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
-      - name: Release
+      - name: Semantic Release
         id: semantic-release
         uses: cycjimmy/semantic-release-action@v2
         with:
@@ -27,14 +27,14 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Zip
+      - name: Package
         if: steps.semantic-release.outputs.new_release_published == 'true'
         uses: papeloto/action-zip@v1
         with:
           files: UnityRSocket/Assets/Viglucci
           dest: out/UnityRSocket-${{ steps.semantic-release.outputs.new_release_version}}.zip
 
-      - name: Attach artifacts to release
+      - name: Attach Artifacts
         if: steps.semantic-release.outputs.new_release_published == 'true'
         uses: svenstaro/upload-release-action@v2
         with:
