@@ -17,6 +17,7 @@ jobs:
           fetch-depth: 0
 
       - name: Release
+        id: semantic-release
         uses: cycjimmy/semantic-release-action@v2
         with:
           semantic_version: 19.0
@@ -28,17 +29,20 @@ jobs:
 
       - name: get-npm-version
         id: package-version
+        if: steps.semantic-release.outputs.new_release_published == 'true'
         uses: martinbeentjes/npm-get-version-action@master
         with:
           path: UnityRSocket/Assets/Viglucci/UnityRSocket
 
       - name: Zip
+        if: steps.semantic-release.outputs.new_release_published == 'true'
         uses: papeloto/action-zip@v1
         with:
           files: UnityRSocket/Assets/Viglucci
           dest: out/UnityRSocket-${{ steps.package-version.outputs.current-version}}.zip
 
       - name: Attach artifacts to release
+        if: steps.semantic-release.outputs.new_release_published == 'true'
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
