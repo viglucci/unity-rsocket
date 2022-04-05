@@ -1,28 +1,28 @@
 {
-    "name": "io.viglucci.unityrsocket",
-    "version": "0.2.1",
-    "description": "Unity compatible implementation of RSocket, an application protocol providing Reactive Streams semantics",
-    "displayName": "RSocket for Unity",
-    "unity": "2018.3",
-    "keywords": [
-      "library",
-      "networking",
-      "platform",
-      "tcp",
-      "websocket",
-      "binary"
-    ],
-    "author": {
-      "email": "kviglucci@gmail.com",
-      "name": "Kevin Viglucci",
-      "url": "https://viglucci.io"
-    },
-    "license": "See LICENSE.md file",
-    "samples": [
-      {
-        "displayName": "Basic Client Manager",
-        "description": "Example of creating a basic ClientManager script to initialize the RSocket client.",
-        "path": "Samples~/BasiClientManager"
-      }
-    ]
-  }
+  "name": "io.viglucci.unityrsocket",
+  "version": "0.3.0",
+  "description": "Unity compatible implementation of RSocket, an application protocol providing Reactive Streams semantics",
+  "displayName": "RSocket for Unity",
+  "unity": "2018.3",
+  "keywords": [
+    "library",
+    "networking",
+    "platform",
+    "tcp",
+    "websocket",
+    "binary"
+  ],
+  "author": {
+    "email": "kviglucci@gmail.com",
+    "name": "Kevin Viglucci",
+    "url": "https://viglucci.io"
+  },
+  "license": "See LICENSE.md file",
+  "samples": [
+    {
+      "displayName": "Basic Client Manager",
+      "description": "Example of creating a basic ClientManager script to initialize the RSocket client.",
+      "path": "Samples~/BasiClientManager"
+    }
+  ]
+}

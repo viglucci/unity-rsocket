@@ -1,0 +1,48 @@
+name: Release
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+     - main
+  
+jobs:
+  Release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Release
+        uses: cycjimmy/semantic-release-action@v2
+        with:
+          semantic_version: 19.0
+          extra_plugins: |
+            @semantic-release/changelog
+            @semantic-release/git
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: get-npm-version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@master
+        with:
+          path: UnityRSocket/Assets/Viglucci/UnityRSocket
+
+      - name: Zip
+        uses: papeloto/action-zip@v1
+        with:
+          files: UnityRSocket/Assets/Viglucci
+          dest: out/UnityRSocket-${{ steps.package-version.outputs.current-version}}.zip
+
+      - name: Attach artifacts to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: out/UnityRSocket-${{ steps.package-version.outputs.current-version}}.zip
+          file_glob: true
+          overwrite: true
+          tag: v${{ steps.package-version.outputs.current-version}}

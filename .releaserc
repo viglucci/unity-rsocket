@@ -1,0 +1,32 @@
+{
+    "branches": [
+        "main"
+    ],
+    "plugins": [
+        "@semantic-release/commit-analyzer",
+        "@semantic-release/release-notes-generator",
+        [
+            "@semantic-release/changelog",
+            {
+                "changelogFile": "UnityRSocket/Assets/Viglucci/UnityRSocket/CHANGELOG.md"
+            }
+        ],
+        [
+            "@semantic-release/npm",
+            {
+                "npmPublish": false,
+                "pkgRoot": "UnityRSocket/Assets/Viglucci/UnityRSocket"
+            }
+        ],
+        [
+            "@semantic-release/git",
+            {
+                "assets": [
+                    "UnityRSocket/Assets/Viglucci/UnityRSocket/package.json",
+                    "UnityRSocket/Assets/Viglucci/UnityRSocket/CHANGELOG.md"
+                ],
+                "message": "chore(release): ${nextRelease.version} [skip ci]"
+            }
+        ]
+    ]
+}
