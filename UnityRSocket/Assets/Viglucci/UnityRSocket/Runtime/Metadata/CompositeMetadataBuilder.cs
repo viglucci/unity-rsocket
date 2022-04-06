@@ -7,6 +7,11 @@ namespace Viglucci.UnityRSocket.Metadata
         private Dictionary<WellKnownMimeType, List<byte[]>> _wellKnownTypes =
             new Dictionary<WellKnownMimeType, List<byte[]>>();
 
+        public CompositeMetadataBuilder Route(string route)
+        {
+            return WellKnown(WellKnownMimeType.MESSAGE_RSOCKET_ROUTING, Routing.EncodeRoute(route));
+        }
+        
         public CompositeMetadataBuilder WellKnown(WellKnownMimeType mimeType, byte[] value)
         {
             List<byte[]> metadata = BytesList(mimeType);
