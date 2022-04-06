@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using Viglucci.UnityRSocket.Frame;
 using Viglucci.UnityRSocket.Scheduling;
+using Viglucci.UnityRSocket.Util;
 
 namespace Viglucci.UnityRSocket.KeepAlive
 {
@@ -23,7 +24,7 @@ namespace Viglucci.UnityRSocket.KeepAlive
         public void Handle(RSocketFrame.AbstractFrame abstractFrame)
         {
             _lastReceivedMillis = DateTimeOffset.Now.ToUnixTimeMilliseconds();
-            if (RSocketFlagUtils.HasRespond(abstractFrame.Flags))
+            if (FlagUtils.HasRespond(abstractFrame.Flags))
             {
                 _duplexConnection.ConnectionOutbound.Send(new RSocketFrame.KeepAliveFrame(0)
                 {

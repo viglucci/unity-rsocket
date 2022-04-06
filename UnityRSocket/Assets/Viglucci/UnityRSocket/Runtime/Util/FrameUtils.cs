@@ -1,4 +1,6 @@
-namespace Viglucci.UnityRSocket.Frame
+using Viglucci.UnityRSocket.Frame;
+
+namespace Viglucci.UnityRSocket.Util
 {
     public static class FrameUtils
     {
@@ -11,11 +13,6 @@ namespace Viglucci.UnityRSocket.Frame
         {
             return FrameType.REQUEST_RESPONSE <= abstractFrame.Type
                    && abstractFrame.Type <= FrameType.REQUEST_CHANNEL;
-        }
-
-        public static bool HasMetadataFlag(ushort flags)
-        {
-            return (flags & (int)RSocketFlagType.METADATA) == (int)RSocketFlagType.METADATA;
         }
     }
 }

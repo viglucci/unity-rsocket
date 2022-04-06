@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Viglucci.UnityRSocket.Frame;
+using Viglucci.UnityRSocket.Util;
 
 namespace Viglucci.UnityRSocket
 {

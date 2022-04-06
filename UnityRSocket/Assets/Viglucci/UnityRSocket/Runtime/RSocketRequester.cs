@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Viglucci.UnityRSocket.Frame;
+using Viglucci.UnityRSocket.Util;
 
 namespace Viglucci.UnityRSocket
 {
@@ -147,9 +148,9 @@ namespace Viglucci.UnityRSocket
 
         private void HandlePayloadFrame(RSocketFrame.AbstractRequestFrame abstractFrame)
         {
-            bool hasComplete = RSocketFlagUtils.HasComplete(abstractFrame.Flags);
-            bool hasPayload = RSocketFlagUtils.HasNext(abstractFrame.Flags);
-            bool hasFollows = RSocketFlagUtils.HasFollows(abstractFrame.Flags);
+            bool hasComplete = FlagUtils.HasComplete(abstractFrame.Flags);
+            bool hasPayload = FlagUtils.HasNext(abstractFrame.Flags);
+            bool hasFollows = FlagUtils.HasFollows(abstractFrame.Flags);
 
             if (hasComplete || !hasFollows)
             {
@@ -311,9 +312,9 @@ namespace Viglucci.UnityRSocket
 
         private void HandlePayloadFrame(RSocketFrame.AbstractRequestFrame abstractFrame)
         {
-            bool hasComplete = RSocketFlagUtils.HasComplete(abstractFrame.Flags);
-            bool hasPayload = RSocketFlagUtils.HasNext(abstractFrame.Flags);
-            bool hasFollows = RSocketFlagUtils.HasFollows(abstractFrame.Flags);
+            bool hasComplete = FlagUtils.HasComplete(abstractFrame.Flags);
+            bool hasPayload = FlagUtils.HasNext(abstractFrame.Flags);
+            bool hasFollows = FlagUtils.HasFollows(abstractFrame.Flags);
 
             if (hasComplete || !hasFollows)
             {

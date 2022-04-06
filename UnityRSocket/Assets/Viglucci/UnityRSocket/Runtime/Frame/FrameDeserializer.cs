@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Viglucci.UnityRSocket.Util;
 
 namespace Viglucci.UnityRSocket.Frame
 {
@@ -32,20 +33,20 @@ namespace Viglucci.UnityRSocket.Frame
         public static RSocketFrame.AbstractFrame DeserializeFrame(List<byte> frameBuffer)
         {
             int offset = 0;
-            
+
             (int value, int nextOffset) streamId = BufferUtils.ReadUInt32BigEndian(frameBuffer, offset);
             offset = streamId.nextOffset;
-            
+
             (int value, int nextOffset) typeAndFlags = BufferUtils.ReadUint16BigEndian(frameBuffer, offset);
-            
+
             // keep highest 6 bits
-            int type = (int)((uint)typeAndFlags.value >> RSocketFlagUtils.FrameTypeOffset);
-            
+            int type = (int)((uint)typeAndFlags.value >> FlagUtils.FrameTypeOffset);
+
             // keep lowest 10 bits
-            int flags = typeAndFlags.value & RSocketFlagUtils.FlagsMask;
-            
+            int flags = typeAndFlags.value & FlagUtils.FlagsMask;
+
             offset = typeAndFlags.nextOffset;
-            
+
             return (FrameType)type switch
             {
                 FrameType.PAYLOAD => DeserializePayloadFrame(frameBuffer, streamId.value, flags, offset),
@@ -68,7 +69,7 @@ namespace Viglucci.UnityRSocket.Frame
             return new RSocketFrame.KeepAliveFrame(streamId)
             {
                 LastReceivedPosition = lastReceivedPosition.value,
-                Flags = (ushort) flags
+                Flags = (ushort)flags
             };
         }
 
@@ -98,9 +99,9 @@ namespace Viglucci.UnityRSocket.Frame
             {
                 Flags = (ushort)flags
             };
-            
+
             ReadPayload(frameBuffer, frame, offset);
-            
+
             return frame;
         }
 
@@ -108,8 +109,8 @@ namespace Viglucci.UnityRSocket.Frame
         {
             frame.Metadata = new List<byte>();
             frame.Data = new List<byte>();
-            
-            if (RSocketFlagUtils.HasMetadata(frame.Flags))
+
+            if (FlagUtils.HasMetadata(frame.Flags))
             {
                 (int value, int nextOffset) metadataLength
                     = BufferUtils.ReadUInt24BigEndian(frameBuffer, offset);

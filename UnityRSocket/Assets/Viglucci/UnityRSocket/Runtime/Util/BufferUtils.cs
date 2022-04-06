@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Viglucci.UnityRSocket
+namespace Viglucci.UnityRSocket.Util
 {
     public static class BufferUtils
     {

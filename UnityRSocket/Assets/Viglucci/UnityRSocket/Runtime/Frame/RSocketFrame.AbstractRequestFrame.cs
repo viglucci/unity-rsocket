@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Viglucci.UnityRSocket.Util;
 
 namespace Viglucci.UnityRSocket.Frame
 {
@@ -16,7 +17,7 @@ namespace Viglucci.UnityRSocket.Frame
             protected void WritePayload(List<byte> bytes)
             {
                 // Check if Metadata flag is set
-                if (FrameUtils.HasMetadataFlag(Flags))
+                if (FlagUtils.HasMetadata(Flags))
                 {
                     // Write metadata with length prefix if we have metadata
                     if (Metadata != null)

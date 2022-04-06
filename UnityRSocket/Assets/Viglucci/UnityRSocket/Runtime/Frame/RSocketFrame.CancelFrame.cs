@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Viglucci.UnityRSocket.Util;
 
 namespace Viglucci.UnityRSocket.Frame
 {
