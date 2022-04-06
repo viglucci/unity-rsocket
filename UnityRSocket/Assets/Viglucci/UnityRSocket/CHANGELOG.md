@@ -1,3 +1,10 @@
+# [0.4.0](https://github.com/viglucci/unity-rsocket/compare/v0.3.1...v0.4.0) (2022-04-06)
+
+
+### Features
+
+* add Route to CompositeMetadataBuilder ([5c2b477](https://github.com/viglucci/unity-rsocket/commit/5c2b477aa0c82114c36e899fadb51f432088a403))
+
 ## [0.3.1](https://github.com/viglucci/unity-rsocket/compare/v0.3.0...v0.3.1) (2022-04-05)
 
 
