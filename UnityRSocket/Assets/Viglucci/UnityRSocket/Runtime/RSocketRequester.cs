@@ -38,7 +38,6 @@ namespace Viglucci.UnityRSocket
         public ICancellableRequestable RequestStream(IPayload payload,
             ISubscriber responderStream, int initialRequestN)
         {
-
             RequestStreamRequesterStream stream
                 = new RequestStreamRequesterStream(payload, responderStream, initialRequestN);
 
@@ -54,7 +53,8 @@ namespace Viglucci.UnityRSocket
         }
     }
 
-    public class RequestResponseRequesterStream : IExtensionSubscriberWithCancellation, IStreamFrameStreamLifecyleHandler
+    public class RequestResponseRequesterStream : IExtensionSubscriberWithCancellation,
+        IStreamFrameStreamLifecyleHandler
     {
         private bool _done;
 
@@ -103,7 +103,7 @@ namespace Viglucci.UnityRSocket
             }
 
             _done = true;
-            
+
             _receiver.OnError(new RSocketError(RSocketErrorCodes.REJECTED, exception.Message));
         }
 
@@ -113,12 +113,12 @@ namespace Viglucci.UnityRSocket
             {
                 case FrameType.PAYLOAD:
                 {
-                    HandlePayloadFrame((RSocketFrame.AbstractRequestFrame) abstractFrame);
+                    HandlePayloadFrame((RSocketFrame.AbstractRequestFrame)abstractFrame);
                     return;
                 }
                 case FrameType.ERROR:
                 {
-                    HandleErrorFrame((RSocketFrame.ErrorFrame) abstractFrame);
+                    HandleErrorFrame((RSocketFrame.ErrorFrame)abstractFrame);
                     return;
                 }
                 case FrameType.EXT:
@@ -184,7 +184,7 @@ namespace Viglucci.UnityRSocket
             }
 
             _done = true;
-            
+
             _stream.Send(new RSocketFrame.CancelFrame(StreamId));
         }
 
@@ -196,8 +196,7 @@ namespace Viglucci.UnityRSocket
 
     public class RequestFnFRequesterHandler : IStreamFrameStreamLifecyleHandler, ICancellable
     {
-        private bool done;
-
+        private bool _done;
         private readonly IPayload _payload;
         private readonly ISubscriber _receiver;
 
@@ -217,7 +216,7 @@ namespace Viglucci.UnityRSocket
 
         public bool HandleReady(int streamId, IStream stream)
         {
-            if (done)
+            if (_done)
             {
                 return false;
             }
@@ -227,7 +226,7 @@ namespace Viglucci.UnityRSocket
             ushort metaDataFlag = (ushort)(_payload.Metadata != null
                 ? RSocketFlagType.METADATA
                 : RSocketFlagType.NONE);
-            
+
             stream.Send(new RSocketFrame.RequestFnfFrame(streamId)
             {
                 Data = _payload.Data,
@@ -235,7 +234,7 @@ namespace Viglucci.UnityRSocket
                 Flags = metaDataFlag
             });
 
-            done = true;
+            _done = true;
 
             _receiver.OnComplete();
 
@@ -275,19 +274,19 @@ namespace Viglucci.UnityRSocket
             _receiver = receiver;
             _initialRequestN = initialRequestN;
         }
-        
+
         public void Handle(RSocketFrame.AbstractFrame abstractFrame)
         {
             switch (abstractFrame.Type)
             {
                 case FrameType.PAYLOAD:
                 {
-                    HandlePayloadFrame((RSocketFrame.AbstractRequestFrame) abstractFrame);
+                    HandlePayloadFrame((RSocketFrame.AbstractRequestFrame)abstractFrame);
                     return;
                 }
                 case FrameType.ERROR:
                 {
-                    HandleErrorFrame((RSocketFrame.ErrorFrame) abstractFrame);
+                    HandleErrorFrame((RSocketFrame.ErrorFrame)abstractFrame);
                     return;
                 }
                 case FrameType.EXT:
@@ -344,7 +343,7 @@ namespace Viglucci.UnityRSocket
         {
             throw new NotImplementedException();
         }
-        
+
         public bool HandleReady(int streamId, IStream stream)
         {
             if (_done)
@@ -354,7 +353,7 @@ namespace Viglucci.UnityRSocket
 
             StreamId = streamId;
             _stream = stream;
-            
+
             ushort metaDataFlag = (ushort)(_payload.Metadata != null
                 ? RSocketFlagType.METADATA
                 : RSocketFlagType.NONE);
