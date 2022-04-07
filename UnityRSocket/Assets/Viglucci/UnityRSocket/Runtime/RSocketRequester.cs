@@ -84,15 +84,13 @@ namespace Viglucci.UnityRSocket
             ushort metaDataFlag = (ushort)(_payload.Metadata != null
                 ? RSocketFlagType.METADATA
                 : RSocketFlagType.NONE);
-            
-            RSocketFrame.RequestResponseFrame frame = new RSocketFrame.RequestResponseFrame(streamId)
+
+            stream.Send(new RSocketFrame.RequestResponseFrame(streamId)
             {
                 Data = _payload.Data,
                 Metadata = _payload.Metadata,
                 Flags = metaDataFlag
-            };
-
-            stream.Send(frame);
+            });
 
             return true;
         }
@@ -226,10 +224,15 @@ namespace Viglucci.UnityRSocket
 
             StreamId = streamId;
 
+            ushort metaDataFlag = (ushort)(_payload.Metadata != null
+                ? RSocketFlagType.METADATA
+                : RSocketFlagType.NONE);
+            
             stream.Send(new RSocketFrame.RequestFnfFrame(streamId)
             {
                 Data = _payload.Data,
-                Metadata = _payload.Metadata
+                Metadata = _payload.Metadata,
+                Flags = metaDataFlag
             });
 
             done = true;
@@ -352,11 +355,16 @@ namespace Viglucci.UnityRSocket
             StreamId = streamId;
             _stream = stream;
             
+            ushort metaDataFlag = (ushort)(_payload.Metadata != null
+                ? RSocketFlagType.METADATA
+                : RSocketFlagType.NONE);
+
             stream.Send(new RSocketFrame.RequestStreamFrame(streamId)
             {
                 Data = _payload.Data,
                 Metadata = _payload.Metadata,
-                RequestN = _initialRequestN
+                RequestN = _initialRequestN,
+                Flags = metaDataFlag
             });
 
             return true;
