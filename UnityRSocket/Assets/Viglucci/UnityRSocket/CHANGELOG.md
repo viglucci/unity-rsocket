@@ -1,3 +1,10 @@
+## [0.4.1](https://github.com/viglucci/unity-rsocket/compare/v0.4.0...v0.4.1) (2022-04-07)
+
+
+### Bug Fixes
+
+* set metadata flag on RequestStream and FireAndForget when metadata present ([b2a4ac6](https://github.com/viglucci/unity-rsocket/commit/b2a4ac69865c7e96d395300a68068045f901e3fd))
+
 # [0.4.0](https://github.com/viglucci/unity-rsocket/compare/v0.3.1...v0.4.0) (2022-04-06)
 
 
