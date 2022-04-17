@@ -1,3 +1,10 @@
+## [0.4.2](https://github.com/viglucci/unity-rsocket/compare/v0.4.1...v0.4.2) (2022-04-17)
+
+
+### Bug Fixes
+
+* include original code and message in stream errors for requestResponse + requestStream ([afd3435](https://github.com/viglucci/unity-rsocket/commit/afd343528d8c86d2f570bd0ce073645c0b389eda))
+
 ## [0.4.1](https://github.com/viglucci/unity-rsocket/compare/v0.4.0...v0.4.1) (2022-04-07)
 
 
