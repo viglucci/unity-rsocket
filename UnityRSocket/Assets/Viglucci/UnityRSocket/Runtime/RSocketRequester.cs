@@ -140,8 +140,10 @@ namespace Viglucci.UnityRSocket
         {
             _done = true;
 
-            // TODO: get actual error code and message from frame
-            _receiver.OnError(new RSocketError(RSocketErrorCodes.REJECTED, "An unexpected error occurred"));
+            RSocketError rSocketError = new RSocketError(
+                (RSocketErrorCodes) abstractFrame.Code,
+                abstractFrame.Message ?? "An unexpected error occurred");
+            _receiver.OnError(rSocketError);
         }
 
         private void HandlePayloadFrame(RSocketFrame.AbstractRequestFrame abstractFrame)
@@ -308,8 +310,10 @@ namespace Viglucci.UnityRSocket
         {
             _done = true;
 
-            // TODO: get actual error code and message from frame
-            _receiver.OnError(new RSocketError(abstractFrame.Code, abstractFrame.Message));
+            RSocketError rSocketError = new RSocketError(
+                (RSocketErrorCodes) abstractFrame.Code,
+                abstractFrame.Message ?? "An unexpected error occurred");
+            _receiver.OnError(rSocketError);
         }
 
         private void HandlePayloadFrame(RSocketFrame.AbstractRequestFrame abstractFrame)
